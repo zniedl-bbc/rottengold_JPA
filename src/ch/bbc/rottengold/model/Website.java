@@ -4,10 +4,16 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQuery(name = "Website.findAll", query = "SELECT w FROM Website w")
+@NamedQueries({ 
+	@NamedQuery(name = "Website.findAll", query = "SELECT w FROM Website w"),
+	@NamedQuery(name = "Website.findByWebsiteName", query = "SELECT w FROM Website w WHERE w.name LIKE '%:webName%'") 
+})
+
+
 public class Website implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -45,7 +51,5 @@ public class Website implements Serializable {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
-
 
 }
