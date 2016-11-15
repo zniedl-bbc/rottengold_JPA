@@ -1,10 +1,12 @@
 package ch.bbc.rottengold.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 /**
@@ -13,7 +15,11 @@ import javax.persistence.NamedQuery;
  */
 @Named
 @Entity
-@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
+@NamedQueries({
+	@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+	@NamedQuery(name = "User.checkLogin", query = "SELECT u FROM User u WHERE u.username = :userUsername AND u.password = :userPassword"),
+	@NamedQuery(name = "User.getUserByUserName", query = "SELECT u FROM User u WHERE u.username = :userUsername")
+})
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -25,6 +31,8 @@ public class User implements Serializable {
 	private String password;
 
 	private String username;
+
+	private Date sessionBeginnTime;
 
 	public User() {
 	}
@@ -59,6 +67,11 @@ public class User implements Serializable {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public void setCreatedAt(Date date) {
+		this.sessionBeginnTime = date;
+		
 	}
 
 }
