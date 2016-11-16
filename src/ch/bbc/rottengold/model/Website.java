@@ -23,9 +23,14 @@ public class Website implements Serializable {
 	private String name;
 
 	private String url;
+	
+	public Website(){
+		
+	}
 
-	public Website() {
-
+	public Website(String name, String url) {
+		this.name = name;
+		this.url = url;
 	}
 
 	public int getId() {
