@@ -32,8 +32,6 @@ public class User implements Serializable {
 
 	private String username;
 
-	private Date sessionBeginnTime;
-
 	public User() {
 	}
 
@@ -69,9 +67,5 @@ public class User implements Serializable {
 		this.username = username;
 	}
 
-	public void setCreatedAt(Date date) {
-		this.sessionBeginnTime = date;
-		
-	}
 
 }
