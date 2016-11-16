@@ -1,7 +1,6 @@
 package ch.bbc.rottengold.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.inject.Named;
 import javax.persistence.Entity;
