@@ -8,12 +8,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQueries({ 
-	@NamedQuery(name = "Website.findAll", query = "SELECT w FROM Website w"),
-	@NamedQuery(name = "Website.findByWebsiteName", query = "SELECT w FROM Website w WHERE w.name LIKE :webName"), 
-	@NamedQuery(name = "Website.findByWebsiteId", query = "SELECT w FROM Website w WHERE w.id LIKE :webId") 
-})
-
+@NamedQueries({ @NamedQuery(name = "Website.findAll", query = "SELECT w FROM Website w"),
+		@NamedQuery(name = "Website.findByWebsiteName", query = "SELECT w FROM Website w WHERE w.name LIKE :webName"),
+		@NamedQuery(name = "Website.findByWebsiteId", query = "SELECT w FROM Website w WHERE w.id LIKE :webId") })
 
 public class Website implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -24,14 +21,17 @@ public class Website implements Serializable {
 	private String name;
 
 	private String url;
-	
-	public Website(){
-		
+
+	private String description;
+
+	public Website() {
+
 	}
 
-	public Website(String name, String url) {
+	public Website(String name, String url, String description) {
 		this.name = name;
 		this.url = url;
+		this.description = description;
 	}
 
 	public int getId() {
@@ -56,6 +56,14 @@ public class Website implements Serializable {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }
