@@ -17,7 +17,8 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
 	@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
 	@NamedQuery(name = "User.checkLogin", query = "SELECT u FROM User u WHERE u.username = :userUsername AND u.password = :userPassword"),
-	@NamedQuery(name = "User.getUserByUserName", query = "SELECT u FROM User u WHERE u.username = :userUsername")
+	@NamedQuery(name = "User.getUserByUserName", query = "SELECT u FROM User u WHERE u.username = :userUsername"),
+	@NamedQuery(name = "User.deleteAccount", query = "DELETE FROM User u  WHERE u.username = :userUsername")
 })
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
