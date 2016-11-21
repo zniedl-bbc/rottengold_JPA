@@ -2,11 +2,13 @@ package ch.bbc.rottengold.model;
 
 import java.io.Serializable;
 
+import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+@Named
 @Entity
 @NamedQueries({ @NamedQuery(name = "Website.findAll", query = "SELECT w FROM Website w"),
 		@NamedQuery(name = "Website.findByWebsiteName", query = "SELECT w FROM Website w WHERE w.name LIKE :webName"),
