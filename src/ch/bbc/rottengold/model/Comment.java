@@ -2,11 +2,13 @@ package ch.bbc.rottengold.model;
 
 import java.io.Serializable;
 
+import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+@Named
 @Entity
 @NamedQueries({ @NamedQuery(name = "Comment.findAll", query = "SELECT c FROM Comment c"),
 		@NamedQuery(name = "Comment.findWithWebsite", query = "SELECT c FROM Comment c WHERE c.id_website = :id_website") })
