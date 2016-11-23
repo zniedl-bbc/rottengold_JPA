@@ -77,4 +77,12 @@ public class Comment implements Serializable {
 		this.id_website = id_website;
 	}
 
+	public void clear() {
+		this.setId(0);
+		this.setComment("");
+		this.setTitle("");
+		this.setId_user(0);
+		this.setId_website(0);
+	}
+
 }
