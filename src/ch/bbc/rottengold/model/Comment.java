@@ -12,7 +12,8 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({ @NamedQuery(name = "Comment.findAll", query = "SELECT c FROM Comment c"),
 		@NamedQuery(name = "Comment.findWithWebsite", query = "SELECT c FROM Comment c WHERE c.id_website = :id_website"),
-		@NamedQuery(name = "Comment.deleteComment", query = "DELETE FROM Comment c  WHERE c.id = :commentDeleteID") })
+		@NamedQuery(name = "Comment.deleteComment", query = "DELETE FROM Comment c  WHERE c.id = :commentDeleteID"),
+		@NamedQuery(name = "Comment.updateComment", query = "UPDATE Comment c SET c.title = :commentNewTitle , c.comment = :commentNewComment WHERE c.id = :id")})
 
 public class Comment implements Serializable {
 	private static final long serialVersionUID = 1L;
