@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({ @NamedQuery(name = "Rating.findAll", query = "SELECT r FROM Rating r"),
 		@NamedQuery(name = "Rating.findRatingByWebsiteIdAndUserId", query = "SELECT r FROM Rating r WHERE r.id_user = :id_user AND r.id_website = :id_website"),
-		@NamedQuery(name = "Rating.findRatingByWebsiteId", query = "SELECT r FROM Rating r WHERE r.id_website = :id_website")})
+		@NamedQuery(name = "Rating.findRatingByWebsiteId", query = "SELECT r FROM Rating r WHERE r.id_website = :id_website") })
 
 public class Rating implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +26,19 @@ public class Rating implements Serializable {
 
 	public Rating() {
 
+	}
+
+	public Rating(int id, int rating, int websiteId, int userId) {
+		this.id = id;
+		this.rating = rating;
+		this.id_website = websiteId;
+		this.id_user = userId;
+	}
+
+	public Rating(int rating, int website_id, int user_id) {
+		this.rating = rating;
+		this.id_website = website_id;
+		this.id_user = user_id;
 	}
 
 	public int getId_user() {
