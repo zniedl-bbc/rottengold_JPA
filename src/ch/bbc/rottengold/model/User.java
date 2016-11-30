@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
@@ -32,6 +33,9 @@ public class User implements Serializable {
 	private String password;
 
 	private String username;
+	
+	@Lob
+	private byte[] profileImg;
 
 	public User() {
 	}
