@@ -12,7 +12,8 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({ @NamedQuery(name = "Website.findAll", query = "SELECT w FROM Website w"),
 		@NamedQuery(name = "Website.findByWebsiteName", query = "SELECT w FROM Website w WHERE w.name LIKE :webName"),
-		@NamedQuery(name = "Website.findByWebsiteId", query = "SELECT w FROM Website w WHERE w.id LIKE :webId") })
+		@NamedQuery(name = "Website.findByWebsiteId", query = "SELECT w FROM Website w WHERE w.id LIKE :webId"),
+		@NamedQuery(name = "Website.findBiggestId", query = "SELECT w.id FROM Website w ORDER BY w.id DESC")})
 
 public class Website implements Serializable {
 	private static final long serialVersionUID = 1L;
