@@ -19,6 +19,7 @@ import javax.persistence.NamedQuery;
 	@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
 	@NamedQuery(name = "User.checkLogin", query = "SELECT u FROM User u WHERE u.username = :userUsername AND u.password = :userPassword"),
 	@NamedQuery(name = "User.getUserByUserName", query = "SELECT u FROM User u WHERE u.username = :userUsername"),
+	@NamedQuery(name = "User.getUserById", query = "SELECT u FROM User u WHERE u.id = :userId"),
 	@NamedQuery(name = "User.deleteAccount", query = "DELETE FROM User u  WHERE u.username = :userUsername"),
 	@NamedQuery(name = "User.changePassword", query = "UPDATE User u SET u.password = :newPassword WHERE u.id = :userId")
 })
@@ -33,9 +34,6 @@ public class User implements Serializable {
 	private String password;
 
 	private String username;
-	
-	@Lob
-	private byte[] profileImg;
 
 	public User() {
 	}
