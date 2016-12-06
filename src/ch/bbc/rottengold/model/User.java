@@ -21,7 +21,8 @@ import javax.persistence.NamedQuery;
 	@NamedQuery(name = "User.getUserByUserName", query = "SELECT u FROM User u WHERE u.username = :userUsername"),
 	@NamedQuery(name = "User.getUserById", query = "SELECT u FROM User u WHERE u.id = :userId"),
 	@NamedQuery(name = "User.deleteAccount", query = "DELETE FROM User u  WHERE u.username = :userUsername"),
-	@NamedQuery(name = "User.changePassword", query = "UPDATE User u SET u.password = :newPassword WHERE u.id = :userId")
+	@NamedQuery(name = "User.changePassword", query = "UPDATE User u SET u.password = :newPassword WHERE u.id = :userId"),
+	@NamedQuery(name = "User.increaseCommentCounter", query = "UPDATE User u SET u.commentcounter = :newCommentCounter WHERE u.id = :userId")
 })
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -34,6 +35,8 @@ public class User implements Serializable {
 	private String password;
 
 	private String username;
+	
+	private int commentcounter;
 
 	public User() {
 	}
@@ -71,6 +74,14 @@ public class User implements Serializable {
 	}
 	public String getIdAsString(){
 		return ""+getId();
+	}
+
+	public int getCommentcounter() {
+		return commentcounter;
+	}
+
+	public void setCommentcounter(int commentCounter) {
+		this.commentcounter = commentCounter;
 	}
 
 }
