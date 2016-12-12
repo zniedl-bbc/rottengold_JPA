@@ -11,7 +11,9 @@ import javax.persistence.NamedQuery;
 @NamedQueries({ @NamedQuery(name = "Rating.findAll", query = "SELECT r FROM Rating r"),
 		@NamedQuery(name = "Rating.findRatingByWebsiteIdAndUserId", query = "SELECT r FROM Rating r WHERE r.id_user = :id_user AND r.id_website = :id_website"),
 		@NamedQuery(name = "Rating.findRatingByWebsiteId", query = "SELECT r FROM Rating r WHERE r.id_website = :id_website"),
-		@NamedQuery(name = "Rating.updateRating", query = "UPDATE Rating r SET r.rating = :rating WHERE r.id_website = :id_website AND r.id_user = :id_user")})
+		@NamedQuery(name = "Rating.updateRating", query = "UPDATE Rating r SET r.rating = :rating WHERE r.id_website = :id_website AND r.id_user = :id_user"),
+		@NamedQuery(name = "Rating.deleteRatings", query = "DELETE FROM Rating r  WHERE r.id_user = :userID")
+})
 
 public class Rating implements Serializable {
 	private static final long serialVersionUID = 1L;
