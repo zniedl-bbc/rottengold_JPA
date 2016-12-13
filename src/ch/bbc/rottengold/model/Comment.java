@@ -80,11 +80,11 @@ public class Comment implements Serializable {
 		this.id_website = id_website;
 	}
 
-	public String getCreationDate() {
+	public String getCreationdate() {
 		return creationdate;
 	}
 
-	public void setCreationDate(String creationdate) {
+	public void setCreationdate(String creationdate) {
 		this.creationdate = creationdate;
 	}
 
@@ -94,7 +94,7 @@ public class Comment implements Serializable {
 		this.setTitle("");
 		this.setId_user(0);
 		this.setId_website(0);
-		this.setCreationDate("");
+		this.setCreationdate("");
 	}
 
 }
