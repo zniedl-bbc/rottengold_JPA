@@ -1,8 +1,6 @@
 package ch.bbc.rottengold.model;
 
 import java.io.Serializable;
-import java.sql.Date;
-
 import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -31,7 +29,7 @@ public class Comment implements Serializable {
 
 	private int id_website;
 
-	private String creationDate;
+	private String creationdate;
 
 	public Comment() {
 
@@ -83,11 +81,11 @@ public class Comment implements Serializable {
 	}
 
 	public String getCreationDate() {
-		return creationDate;
+		return creationdate;
 	}
 
-	public void setCreationDate(String creationDate) {
-		this.creationDate = creationDate;
+	public void setCreationDate(String creationdate) {
+		this.creationdate = creationdate;
 	}
 
 	public void clear() {
