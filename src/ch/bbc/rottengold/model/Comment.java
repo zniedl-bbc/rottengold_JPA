@@ -1,6 +1,7 @@
 package ch.bbc.rottengold.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.inject.Named;
 import javax.persistence.Entity;
@@ -14,8 +15,7 @@ import javax.persistence.NamedQuery;
 		@NamedQuery(name = "Comment.findWithWebsite", query = "SELECT c FROM Comment c WHERE c.id_website = :id_website"),
 		@NamedQuery(name = "Comment.deleteComment", query = "DELETE FROM Comment c  WHERE c.id = :commentDeleteID"),
 		@NamedQuery(name = "Comment.updateComment", query = "UPDATE Comment c SET c.title = :commentNewTitle , c.comment = :commentNewComment WHERE c.id = :id"),
-		@NamedQuery(name = "Comment.deleteCommentByUserID", query = "DELETE FROM Comment c WHERE c.id_user = :userId")
-})
+		@NamedQuery(name = "Comment.deleteCommentByUserID", query = "DELETE FROM Comment c WHERE c.id_user = :userId") })
 
 public class Comment implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -30,6 +30,8 @@ public class Comment implements Serializable {
 	private int id_user;
 
 	private int id_website;
+
+	private String creationDate;
 
 	public Comment() {
 
@@ -80,12 +82,21 @@ public class Comment implements Serializable {
 		this.id_website = id_website;
 	}
 
+	public String getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
+	}
+
 	public void clear() {
 		this.setId(0);
 		this.setComment("");
 		this.setTitle("");
 		this.setId_user(0);
 		this.setId_website(0);
+		this.setCreationDate("");
 	}
 
 }
